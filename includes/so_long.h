@@ -6,14 +6,13 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 12:15:05 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/08/15 12:16:21 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/08/20 10:04:18 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
-# define PUSH_SWAP_H
+# define SO_LONG_H
 
 # include "libft.h"
-# include <unistd.h>
 
 #endif

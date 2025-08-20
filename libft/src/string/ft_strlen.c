@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 15:09:33 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/04/29 17:32:20 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/08/20 10:31:05 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 size_t	ft_strlen(const char *s)
 {
-	size_t	i;
+	int	i;
 
+	if (!s)
+		return (0);
 	i = 0;
 	while (s[i])
-	{
 		i++;
-	}
 	return (i);
 }

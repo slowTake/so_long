@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 12:43:24 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/05/03 14:38:40 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/08/20 10:28:02 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strjoin(const char *s1, const char *s2)
 
 	j = 0;
 	i = 0;
-	tlen = ft_strlen(s1) + ft_strlen(s2);
+	tlen = ft_strlen((char *)s1) + ft_strlen((char *)s2);
 	newstr = (char *)malloc(tlen + 1);
 	if (newstr == NULL)
 		return (NULL);
@@ -31,11 +31,7 @@ char	*ft_strjoin(const char *s1, const char *s2)
 		i++;
 	}
 	while (s2[j])
-	{
-		newstr[i] = s2[j];
-		i++;
-		j++;
-	}
+		newstr[i++] = s2[j++];
 	newstr[i] = '\0';
 	return (newstr);
 }
