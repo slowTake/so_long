@@ -6,13 +6,18 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 14:46:19 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/07/24 16:05:10 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/08/20 09:48:28 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
+
+# include <fcntl.h>
 # include <limits.h>
 # include <stdarg.h>
 # include <stddef.h>
@@ -64,5 +69,12 @@ int		ft_putnbr_unsigned(unsigned long n, size_t *counter);
 int		ft_puthex_low(unsigned long n, size_t *counter);
 int		ft_puthex_up(unsigned long n, size_t *counter);
 int		ft_putptr(void *ptr, size_t *counter);
+// gnl
+int		ft_read_buffer(char *read_buff, int fd, char **line);
+char	*get_next_line(int fd);
+char	*ft_extract_line(char *read_buff, char *line);
+void	ft_shift_buffer(char *read_buff, size_t start);
+char	*ft_handle_newline(char *read_buff, int new_pos, char *line);
+int		ft_check_nl(const char *str, int c);
 
 #endif

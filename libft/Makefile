@@ -7,6 +7,7 @@ MEM_DIR		= src/memory
 NUM_DIR		= src/numeric
 IO_DIR		= src/io
 PRINTF_DIR	= src/printf
+GNL_DIR		= src/gnl
 
 SRCS		= $(CHAR_DIR)/ft_isalpha.c \
 			  $(CHAR_DIR)/ft_isdigit.c \
@@ -43,7 +44,9 @@ SRCS		= $(CHAR_DIR)/ft_isalpha.c \
 			  $(IO_DIR)/ft_putendl_fd.c \
 			  $(IO_DIR)/ft_putnbr_fd.c \
 			  $(PRINTF_DIR)/ft_printf.c \
-			  $(PRINTF_DIR)/ft_printf_utility.c
+			  $(PRINTF_DIR)/ft_printf_utility.c \
+			  $(GNL_DIR)/ft_gnl.c \
+			  $(GNL_DIR)/ft_gnl_util.c
 
 # Object files directory
 OBJ_DIR		= objs
@@ -79,6 +82,7 @@ vpath %.c $(MEM_DIR)
 vpath %.c $(NUM_DIR)
 vpath %.c $(IO_DIR)
 vpath %.c $(PRINTF_DIR)
+vpath %.c $(GNL_DIR)
 
 # Compilation rule
 $(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
