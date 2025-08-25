@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   maps.c                                             :+:      :+:    :+:   */
+/*   map_checks.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/15 12:14:31 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/08/22 15:41:31 by pnurmi           ###   ########.fr       */
+/*   Created: 2025/08/22 15:02:56 by pnurmi            #+#    #+#             */
+/*   Updated: 2025/08/22 15:21:18 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	gnl_map(char str)
+int	map_check(char *mapfile)
 {
-	int		fd;
-	char	*line;
-
-	while ((line = get_next_line(fd)) != NULL)
-	{
-		// check ecp
-		// strlen?
-	}
+	/*check existence of map file
+	check if something is mapfile
+	check wall around map
+	check player
+	check collectible
+	check if collectible is reachable
+	check exit
+	check dimensions both size should be equal to each other
+	*/
 }
 
-void	map_parse(char *mapfile)
+int	flood_fill_collectibles(char *mapfile)
 {
-	map_check("test_map.ber");
 }
+/*flood fill to see if all collectibles are reachable
+start from the player
+*/
