@@ -1,29 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/15 12:15:05 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/08/28 16:09:13 by pnurmi           ###   ########.fr       */
+/*   Created: 2025/08/28 16:05:21 by pnurmi            #+#    #+#             */
+/*   Updated: 2025/08/28 16:14:37 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include "so_long.h"
 
-# include "libft.h"
-
-// Meeps
-void	parse_map(char *filename);
-char	*read_map(char *filename);
-void	map_check(char *mapfile);
-
-// map check
-int		count_objects(char *map, char c);
-
-// error
-void	error_object(char *mapfile, char *error_msg);
-
-#endif
+void	error_object(char *mapfile, char *error_msg)
+{
+	ft_putstr_fd("Error:\n", 2);
+	ft_putstr_fd(error_msg, 2);
+	free(mapfile);
+	exit(1);
+}

@@ -6,25 +6,31 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/22 15:02:56 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/08/28 12:54:47 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/08/28 16:11:04 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	map_check(const char *mapfile)
+void	map_check(char *mapfile)
 {
 	if (count_objects(mapfile, 'P') != 1)
-		ft_putstr_fd("error player count\n", 2);
+	{
+		error_object(mapfile, "Player count");
+	}
 	if (count_objects(mapfile, 'C') <= 0)
-		ft_putstr_fd("error collectibles\n", 2);
+	{
+		error_object(mapfile, "Collectibles count");
+	}
 	if (count_objects(mapfile, 'E') != 1)
-		ft_putstr_fd("error exits\n", 2);
+	{
+		error_object(mapfile, "Exit count");
+	}
 	else
 		ft_putstr_fd("Valid Map\n", 2);
 }
 
-int	count_objects(const char *map, char c)
+int	count_objects(char *map, char c)
 {
 	int	i;
 	int	count;

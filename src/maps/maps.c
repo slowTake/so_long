@@ -6,14 +6,14 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 12:14:31 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/08/28 12:54:59 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/08/28 16:01:35 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 #include <stdio.h>
 
-void	parse_map(const char *filename)
+void	parse_map(char *filename)
 {
 	char	*map_contents;
 
@@ -22,7 +22,7 @@ void	parse_map(const char *filename)
 	map_check(map_contents);
 }
 
-char	*read_map(const char *filename)
+char	*read_map(char *filename)
 {
 	int		fd;
 	char	*map_whole;
