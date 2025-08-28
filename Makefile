@@ -6,7 +6,7 @@
 #    By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/04 12:25:20 by pnurmi            #+#    #+#              #
-#    Updated: 2025/08/15 12:19:43 by pnurmi           ###   ########.fr        #
+#    Updated: 2025/08/25 12:19:30 by pnurmi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,6 @@ SRC        := $(SRC_DIR)/main/main.c \
                $(SRC_DIR)/utility/utils.c \
                $(SRC_DIR)/maps/maps.c \
                $(SRC_DIR)/game/hooks.c
-               
 
 # Header File for Push_Swap
 HEADER      := so_long.h
