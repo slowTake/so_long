@@ -6,28 +6,42 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/22 15:02:56 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/08/27 09:42:50 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/08/28 12:54:47 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	map_check(char *mapfile)
+void	map_check(const char *mapfile)
 {
-	/*check existence of map file
-	check if something is mapfile
-	check wall around map
-	check player only 1 not more
-	check collectible
-	check if collectible is reachable
-	check exit, invalid if more than 1
-	check dimensions both size should be equal to each other
-	*/
+	if (count_objects(mapfile, 'P') != 1)
+		ft_putstr_fd("error player count\n", 2);
+	if (count_objects(mapfile, 'C') <= 0)
+		ft_putstr_fd("error collectibles\n", 2);
+	if (count_objects(mapfile, 'E') != 1)
+		ft_putstr_fd("error exits\n", 2);
+	else
+		ft_putstr_fd("Valid Map\n", 2);
 }
 
-int	flood_fill_collectibles(char **mapfile, t_point size)
+int	count_objects(const char *map, char c)
 {
+	int	i;
+	int	count;
+
+	i = 0;
+	count = 0;
+	while (map[i])
+	{
+		if (map[i] == c)
+			count++;
+		i++;
+	}
+	return (count);
 }
+
+// int	flood_fill_collectibles(char **mapfile, t_point size);
+
 /*flood fill to see if all collectibles are reachable
 start from the player
 check if exit also reachable

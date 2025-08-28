@@ -6,15 +6,18 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 12:12:41 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/08/28 09:19:24 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/08/28 12:21:21 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(void)
+int	main(int argc, char **argv)
 {
-	gnl_map();
+	if (argc == 2)
+		parse_map(argv[1]);
+	else
+		ft_putstr_fd("Give map name", 2);
 }
 
 /*
