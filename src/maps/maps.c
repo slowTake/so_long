@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 12:14:31 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/08/28 16:01:35 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/08/29 09:13:05 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,10 @@ void	parse_map(char *filename)
 {
 	char	*map_contents;
 
-	map_contents = ft_strdup("");
 	map_contents = read_map(filename);
+	check_map_tile(map_contents);
 	map_check(map_contents);
+	free(map_contents);
 }
 
 char	*read_map(char *filename)

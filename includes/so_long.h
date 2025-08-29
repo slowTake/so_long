@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 12:15:05 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/08/28 16:09:13 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/08/29 09:07:56 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,7 @@ int		count_objects(char *map, char c);
 
 // error
 void	error_object(char *mapfile, char *error_msg);
+void	check_map_tile(char *map);
+void	error_map(char *mapfile);
 
 #endif

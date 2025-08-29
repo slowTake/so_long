@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/22 15:02:56 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/08/28 16:11:04 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/08/29 09:16:11 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,24 @@ int	count_objects(char *map, char c)
 		i++;
 	}
 	return (count);
+}
+
+void	check_map_tile(char *map)
+{
+	int	i;
+
+	i = 0;
+	if (map == NULL)
+		error_map(map);
+	while (map[i])
+	{
+		if (map[i] != '1' && map[i] != '0' && map[i] != 'E' && map[i] != 'C'
+			&& map[i] != 'P' && map[i] != '\n')
+		{
+			error_object(map, "Invalid object found\n");
+		}
+		i++;
+	}
 }
 
 // int	flood_fill_collectibles(char **mapfile, t_point size);
