@@ -6,7 +6,7 @@
 #    By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/04 12:25:20 by pnurmi            #+#    #+#              #
-#    Updated: 2025/08/29 09:19:02 by pnurmi           ###   ########.fr        #
+#    Updated: 2025/08/29 11:13:25 by pnurmi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ INC_DIR     := includes
 
 # Source Files: Manually listed with full paths
 SRC        := $(SRC_DIR)/main/main.c \
-               $(SRC_DIR)/utility/utils.c \
+               $(SRC_DIR)/utility/dimensions.c \
 			   $(SRC_DIR)/utility/error.c \
                $(SRC_DIR)/maps/map_parsing.c \
 			   $(SRC_DIR)/maps/map_checks.c \

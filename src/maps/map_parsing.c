@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 12:14:31 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/08/29 09:31:50 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/08/29 11:16:44 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@ void	parse_map(char *filename)
 	map_contents = read_map(filename);
 	print_map(map_contents);
 	check_map_tile(map_contents);
-	check_map_boundaries(map_contents);
+	map_width(map_contents);
+	map_height(map_contents);
+	// check_map_boundaries(map_contents);
 	check_objects(map_contents);
 	free(map_contents);
 }
@@ -50,4 +52,19 @@ char	*read_map(char *filename)
 	}
 	close(fd);
 	return (map_whole);
+}
+
+char	*read_map_line(char *filename)
+{
+	int fd;
+	char *line;
+
+	fd = open(filename, O_RDONLY);
+	if (fd == -1)
+		return (NULL);
+	while ((line = get_next_line(fd)) != NULL)
+	{
+	}
+	close(fd);
+	return (line);
 }

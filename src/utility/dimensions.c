@@ -1,27 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   dimensions.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/15 12:12:41 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/08/29 11:12:39 by pnurmi           ###   ########.fr       */
+/*   Created: 2025/08/15 12:13:16 by pnurmi            #+#    #+#             */
+/*   Updated: 2025/08/29 11:17:55 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(int argc, char **argv)
+int	map_width(char *map)
 {
-	if (argc == 2)
-		parse_map(argv[1]);
-	else
-		ft_putstr_fd("Give map name", 2);
+	int	i;
+	int	width;
+
+	i = 0;
+	width = 0;
+	while (map[i] != '\n')
+	{
+		i++;
+		width++;
+	}
+	printf("%d", width);
+	return (width);
 }
 
-/*
-parse map
-handle user input
+int	map_height(char *map)
+{
+	int i = 0;
+	int height = 1;
 
-*/
+	while (map[i])
+	{
+		if (map[i] == '\n' || map[i] == '\0')
+			height++;
+		i++;
+	}
+	printf("%d", height);
+	return (height);
+}
