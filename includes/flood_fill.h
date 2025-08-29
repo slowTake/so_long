@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dimensions.c                                       :+:      :+:    :+:   */
+/*   flood_fill.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/15 12:13:16 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/08/29 14:29:46 by pnurmi           ###   ########.fr       */
+/*   Created: 2025/08/29 13:38:25 by pnurmi            #+#    #+#             */
+/*   Updated: 2025/08/29 13:56:01 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#ifndef FLOOD_FILL_H
+# define FLOOD_FILL_H
 
-int	map_width(char *map)
+typedef struct s_map
 {
-	int	width;
+	int		width;
+	int		height;
+	int		visited;
+	int		x;
+	int		y;
+	char	**coordinates;
+}			t_map;
 
-	width = 0;
-	while (map[width] != '\n')
-	{
-		width++;
-	}
-	return (width);
-}
-
-int	map_height(char *map)
-{
-	int height;
-
-	while (map[height] != NULL)
-		height++;
-	return (height);
-}
+#endif

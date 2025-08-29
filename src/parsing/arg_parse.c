@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 11:23:37 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/08/29 12:10:39 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/08/29 14:23:10 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,3 @@ void	parse_arg(char *argv)
 	if (result == NULL)
 		error_exit();
 }
-
-// addition check if map exists

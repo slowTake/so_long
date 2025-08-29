@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 12:14:31 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/08/29 12:15:36 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/08/29 12:50:33 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ void	parse_map(char *filename)
 	// check_map_boundaries(map_contents);
 	check_objects(map_contents);
 	free(map_contents);
+	// check if all lines match in length
+	// does it for a rectangle
 }
 
 char	*read_map(char *filename)
@@ -60,8 +62,8 @@ char	*read_map(char *filename)
 
 char	*read_map_line(char *filename)
 {
-	int fd;
-	char *line;
+	int		fd;
+	char	*line;
 
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
