@@ -1,44 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dimensions.c                                       :+:      :+:    :+:   */
+/*   arg_parse.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/15 12:13:16 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/08/29 11:17:55 by pnurmi           ###   ########.fr       */
+/*   Created: 2025/08/29 11:23:37 by pnurmi            #+#    #+#             */
+/*   Updated: 2025/08/29 12:10:39 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	map_width(char *map)
+void	parse_arg(char *argv)
 {
-	int	i;
-	int	width;
+	char	*filename;
+	char	*extension;
+	char	*result;
 
-	i = 0;
-	width = 0;
-	while (map[i] != '\n')
-	{
-		i++;
-		width++;
-	}
-	printf("%d", width);
-	return (width);
+	filename = argv;
+	extension = ".ber";
+	result = ft_strnstr(filename, extension, ft_strlen(filename));
+	if (result == NULL)
+		error_exit();
 }
 
-int	map_height(char *map)
-{
-	int i = 0;
-	int height = 1;
-
-	while (map[i])
-	{
-		if (map[i] == '\n' || map[i] == '\0')
-			height++;
-		i++;
-	}
-	printf("%d", height);
-	return (height);
-}
+// addition check if map exists

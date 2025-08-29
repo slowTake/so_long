@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/22 15:02:56 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/08/29 09:34:38 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/08/29 11:23:59 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,13 +92,3 @@ void	print_map(char *map)
 	}
 	ft_printf("\n\n\n");
 }
-
-// int	flood_fill_collectibles(char **mapfile, t_point size);
-
-/*flood fill to see if all collectibles are reachable
-start from the player
-check if exit also reachable
-flood fill needs the collectible count beforehand
-checks if all collectibles are reachable by comparing
-
-*/

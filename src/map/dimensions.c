@@ -1,25 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   flood_fill.c                                       :+:      :+:    :+:   */
+/*   dimensions.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/29 10:31:34 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/08/29 11:22:19 by pnurmi           ###   ########.fr       */
+/*   Created: 2025/08/15 12:13:16 by pnurmi            #+#    #+#             */
+/*   Updated: 2025/08/29 11:18:48 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	flood_fill(char **map, int visited, int x, int y)
+#include "so_long.h"
+
+int	map_width(char *map)
 {
+	int	i;
+	int	width;
+
+	i = 0;
+	width = 0;
+	while (map[i] != '\n')
+	{
+		i++;
+		width++;
+	}
+	return (width);
 }
 
-// int	flood_fill_collectibles(char **mapfile, t_point size);
+int	map_height(char *map)
+{
+	int i = 0;
+	int height = 1;
 
-/*flood fill to see if all collectibles are reachable
-start from the player
-check if exit also reachable
-flood fill needs the collectible count beforehand
-checks if all collectibles are reachable by comparing
-
-*/
+	while (map[i])
+	{
+		if (map[i] == '\n' || map[i] == '\0')
+			height++;
+		i++;
+	}
+	return (height);
+}

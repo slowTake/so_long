@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 12:15:05 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/08/29 11:14:48 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/08/29 11:44:06 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,13 @@ void	check_map_boundaries(char *map);
 void	error_object(char *mapfile, char *error_msg);
 void	check_map_tile(char *map);
 void	error_map(char *mapfile);
+void	error_exit(void);
 
 // utility
 int		map_width(char *map);
 int		map_height(char *map);
+
+// pasing
+void	parse_arg(char *argv);
 
 #endif

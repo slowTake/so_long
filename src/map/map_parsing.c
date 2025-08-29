@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 12:14:31 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/08/29 11:16:44 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/08/29 12:15:36 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,16 @@
 void	parse_map(char *filename)
 {
 	char	*map_contents;
+	int		width;
+	int		height;
 
+	// check if valid filename .ber and if exists
+	parse_arg(filename);
 	map_contents = read_map(filename);
 	print_map(map_contents);
 	check_map_tile(map_contents);
-	map_width(map_contents);
-	map_height(map_contents);
+	width = map_width(map_contents);
+	height = map_height(map_contents);
 	// check_map_boundaries(map_contents);
 	check_objects(map_contents);
 	free(map_contents);
@@ -36,7 +40,7 @@ char	*read_map(char *filename)
 
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
-		return (NULL);
+		error_exit();
 	map_whole = ft_strdup("");
 	while ((line = get_next_line(fd)) != NULL)
 	{

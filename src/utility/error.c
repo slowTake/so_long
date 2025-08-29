@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/28 16:05:21 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/08/29 09:26:48 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/08/29 11:26:23 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,11 @@ void	error_map(char *mapfile)
 {
 	ft_putstr_fd("Invalid Map\n", 2);
 	free(mapfile);
+	exit(1);
+}
+
+void	error_exit(void)
+{
+	ft_putstr_fd("Error\n", 2);
 	exit(1);
 }
