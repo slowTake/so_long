@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 12:13:16 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/08/29 14:29:46 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/08/29 14:30:58 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ int	map_height(char *map)
 {
 	int height;
 
-	while (map[height] != NULL)
+	height = 0;
+	while (map[height])
 		height++;
 	return (height);
 }
