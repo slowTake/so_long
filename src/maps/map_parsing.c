@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   maps.c                                             :+:      :+:    :+:   */
+/*   map_parsing.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 12:14:31 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/08/29 09:13:05 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/08/29 09:31:50 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,10 @@ void	parse_map(char *filename)
 	char	*map_contents;
 
 	map_contents = read_map(filename);
+	print_map(map_contents);
 	check_map_tile(map_contents);
-	map_check(map_contents);
+	check_map_boundaries(map_contents);
+	check_objects(map_contents);
 	free(map_contents);
 }
 

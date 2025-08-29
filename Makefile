@@ -6,7 +6,7 @@
 #    By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/04 12:25:20 by pnurmi            #+#    #+#              #
-#    Updated: 2025/08/28 16:05:13 by pnurmi           ###   ########.fr        #
+#    Updated: 2025/08/29 09:19:02 by pnurmi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ INC_DIR     := includes
 SRC        := $(SRC_DIR)/main/main.c \
                $(SRC_DIR)/utility/utils.c \
 			   $(SRC_DIR)/utility/error.c \
-               $(SRC_DIR)/maps/maps.c \
+               $(SRC_DIR)/maps/map_parsing.c \
 			   $(SRC_DIR)/maps/map_checks.c \
                $(SRC_DIR)/game/hooks.c
 

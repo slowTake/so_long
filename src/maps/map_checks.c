@@ -6,25 +6,25 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/22 15:02:56 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/08/29 09:16:11 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/08/29 09:34:38 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	map_check(char *mapfile)
+void	check_objects(char *mapfile)
 {
 	if (count_objects(mapfile, 'P') != 1)
 	{
-		error_object(mapfile, "Player count");
+		error_object(mapfile, "Player count\n");
 	}
 	if (count_objects(mapfile, 'C') <= 0)
 	{
-		error_object(mapfile, "Collectibles count");
+		error_object(mapfile, "Collectibles count\n");
 	}
 	if (count_objects(mapfile, 'E') != 1)
 	{
-		error_object(mapfile, "Exit count");
+		error_object(mapfile, "Exit count\n");
 	}
 	else
 		ft_putstr_fd("Valid Map\n", 2);
@@ -62,6 +62,35 @@ void	check_map_tile(char *map)
 		}
 		i++;
 	}
+}
+
+void	check_map_boundaries(char *map)
+{
+	int	i;
+
+	i = 0;
+	if (map == NULL)
+		error_map(map);
+	while (map[i] != '\n')
+	{
+		if (map[i] != '1')
+			error_object(map, "invalid 1st line");
+		i++;
+	}
+}
+
+void	print_map(char *map)
+{
+	int	i;
+
+	i = 0;
+	ft_printf("\n\n");
+	while (map[i])
+	{
+		ft_printf("%c", map[i]);
+		i++;
+	}
+	ft_printf("\n\n\n");
 }
 
 // int	flood_fill_collectibles(char **mapfile, t_point size);
