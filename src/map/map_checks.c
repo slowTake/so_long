@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/22 15:02:56 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/08/29 11:23:59 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/08/30 15:30:56 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,11 @@
 void	check_objects(char *mapfile)
 {
 	if (count_objects(mapfile, 'P') != 1)
-	{
 		error_object(mapfile, "Player count\n");
-	}
 	if (count_objects(mapfile, 'C') <= 0)
-	{
 		error_object(mapfile, "Collectibles count\n");
-	}
 	if (count_objects(mapfile, 'E') != 1)
-	{
 		error_object(mapfile, "Exit count\n");
-	}
 	else
 		ft_putstr_fd("Valid Map\n", 2);
 }
@@ -64,6 +58,9 @@ void	check_map_tile(char *map)
 	}
 }
 
+/*
+REDUNDANT
+*/
 void	check_map_boundaries(char *map)
 {
 	int	i;

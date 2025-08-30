@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 12:14:31 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/08/29 12:50:33 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/08/30 16:09:56 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ void	parse_map(char *filename)
 	int		width;
 	int		height;
 
-	// check if valid filename .ber and if exists
 	parse_arg(filename);
 	map_contents = read_map(filename);
 	print_map(map_contents);
 	check_map_tile(map_contents);
 	width = map_width(map_contents);
 	height = map_height(map_contents);
+	// line_validation(map_contents, width, height);
 	// check_map_boundaries(map_contents);
 	check_objects(map_contents);
 	free(map_contents);

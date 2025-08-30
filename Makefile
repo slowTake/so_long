@@ -6,7 +6,7 @@
 #    By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/04 12:25:20 by pnurmi            #+#    #+#              #
-#    Updated: 2025/08/29 11:44:32 by pnurmi           ###   ########.fr        #
+#    Updated: 2025/08/30 15:26:40 by pnurmi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,10 +22,12 @@ INC_DIR     := includes
 SRC        := $(SRC_DIR)/main/main.c \
                $(SRC_DIR)/map/dimensions.c \
 			   $(SRC_DIR)/utility/error.c \
+			   $(SRC_DIR)/utility/flood_fill.c \
                $(SRC_DIR)/map/map_parsing.c \
 			   $(SRC_DIR)/map/map_checks.c \
                $(SRC_DIR)/game/hooks.c \
 			   $(SRC_DIR)/parsing/arg_parse.c
+
 
 # Header File for Push_Swap
 HEADER      := so_long.h

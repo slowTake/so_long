@@ -6,35 +6,55 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 10:31:34 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/08/29 13:47:22 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/08/30 16:11:54 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	flood_fill(char **map, int visited, int x, int y, int width, int height)
+#include "so_long.h"
+
+int	floodfill(t_map_info *info, int x, int y)
 {
-	width = map_width(map);
-	height = map_height(map);
-	if (visited == 0)
+	if (x < 0 || x >= info->cols || y < 0 || y >= info->rows)
+		return (0);
+	if (info->visited[y][x] == 1 || info->visited[y][x] == '1')
+		return (0);
+	info->visited[y][x] = 1;
+	floodfill(info, x + 1, y);
+	floodfill(info, x - 1, y);
+	floodfill(info, x, y + 1);
+	floodfill(info, x, y - 1);
+	return (1);
+}
+
+int	flood_find_player(char **map, int *x, int *y)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (map[i])
 	{
+		j = 0;
+		while (map[i][j])
+		{
+			if (map[i][j] == 'P')
+			{
+				*x = j;
+				*y = i;
+				return (1);
+			}
+			j++;
+		}
+		i++;
 	}
+	return (0);
 }
 
-// int	flood_fill_collectibles(char **mapfile, t_point size);
-
-/*flood fill to see if all collectibles are reachable
-start from the player
-check if exit also reachable
-flood fill needs the collectible count beforehand
-checks if all collectibles are reachable by comparing
-
-*/
-/*int	main(void)
+int	**create_visited_array(int height, int width)
 {
-	t_map	map;
 }
 
-int	flood_fill(t_map *map)
-{
-	int tmp_width = map->width;
-	char **tmp_map_coords = map->coordinates;
-}*/
+void	free_visited_array(int **visited, int height);
+// {
+// 	free(visited);
+// }
