@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 10:31:34 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/08/30 16:11:54 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/09/01 09:07:05 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,35 @@ int	flood_find_player(char **map, int *x, int *y)
 	return (0);
 }
 
-int	**create_visited_array(int height, int width)
+int	**create_visited_array(int rows, int cols)
 {
+	int	i;
+	int	j;
+	int	**visited;
+
+	i = 0;
+	visited = malloc(rows * sizeof(int *));
+	if (!visited)
+		return (NULL);
+	while (i < rows)
+	{
+		visited[i] = malloc(cols * sizeof(int));
+		if (!visited[i])
+		{
+			j = 0;
+			while (j < i)
+			{
+				free(visited[j]);
+				j++;
+			}
+			free(visited);
+			return (NULL);
+		}
+	}
+	return (visited);
 }
 
-void	free_visited_array(int **visited, int height);
+// void	free_visited_array(int **visited, int height);
 // {
-// 	free(visited);
+// 	int i
 // }

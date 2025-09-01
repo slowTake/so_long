@@ -6,7 +6,7 @@
 #    By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/04 12:25:20 by pnurmi            #+#    #+#              #
-#    Updated: 2025/08/30 15:26:40 by pnurmi           ###   ########.fr        #
+#    Updated: 2025/09/01 09:21:45 by pnurmi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,8 +28,7 @@ SRC        := $(SRC_DIR)/main/main.c \
                $(SRC_DIR)/game/hooks.c \
 			   $(SRC_DIR)/parsing/arg_parse.c
 
-
-# Header File for Push_Swap
+# Header File for so_long
 HEADER      := so_long.h
 
 # Object Files: Generated from full source paths
@@ -47,13 +46,20 @@ LIBFT_DIR   := ./libft
 LIBFT       := $(LIBFT_DIR)/libft.a
 LIBFT_H     := $(LIBFT_DIR)/libft.h
 
+# MinilibX Integration
+MLX_DIR     := ./minilibx
+MLX_LIB     := $(MLX_DIR)/libmlx.a
+
 # Include Paths and Libraries
-INC         := -I. -I$(LIBFT_DIR) -I$(INC_DIR)
-LIBS        := -L$(LIBFT_DIR) -lft
+INC         := -I. -I$(LIBFT_DIR) -I$(INC_DIR) -I$(MLX_DIR)
+LIBS        := -L$(LIBFT_DIR) -lft -L$(MLX_DIR) -lmlx -lXext -lX11 -lm
+
+# For macOS, replace the MLX linking flags with:
+# LIBS        := -L$(LIBFT_DIR) -lft -L$(MLX_DIR) -lmlx -framework OpenGL -framework AppKit
 
 # -------------------- Main Targets --------------------
 
-$(NAME): $(OBJS) $(LIBFT)
+$(NAME): $(OBJS) $(LIBFT) $(MLX_LIB)
 	$(CC) $(CFLAGS) $(INC) $(OBJS) $(LIBS) -o $(NAME)
 
 # Rule to compile individual .c files into .o files.
@@ -64,6 +70,10 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
 # Rule to build libft.a
 $(LIBFT):
 	$(MAKE) -C $(LIBFT_DIR)
+
+# Rule to build MinilibX
+$(MLX_LIB):
+	$(MAKE) -C $(MLX_DIR)
 
 # Rule to create the object directory if it doesn't exist
 $(OBJ_DIR):
@@ -78,6 +88,7 @@ all: $(NAME)
 clean:
 	$(RM) -r $(OBJ_DIR)
 	$(MAKE) -C $(LIBFT_DIR) clean
+	$(MAKE) -C $(MLX_DIR) clean
 
 fclean: clean
 	$(RM) $(NAME)
