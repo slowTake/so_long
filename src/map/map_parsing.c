@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 12:14:31 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/09/01 16:17:52 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/09/01 16:37:07 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	parse_map(t_game *game, char *filename)
 	map_contents = read_map(filename);
 	check_map_tile(map_contents);
 	game->map = ft_split(map_contents, '\n');
-	//	print_map(map_contents); // remove after
+	print_map(map_contents); // remove after
 	//	width = map_width(map_contents);
 	//	height = map_height(map_contents);
 	check_objects(map_contents);

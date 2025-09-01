@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 15:28:49 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/09/01 16:22:17 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/09/01 16:41:37 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,17 +45,16 @@ void	render_tile(t_game *game, char tile, int x, int y)
 	sprite = NULL;
 	mlx_put_image_to_window(game->mlx, game->win, game->textures.floor, x * 32,
 		y * 32);
-	if (tile == '0')
-		sprite = game->textures.floor;
 	if (tile == '1')
 		sprite = game->textures.wall;
-	if (tile == 'P')
+	else if (tile == 'P')
 		sprite = game->textures.player;
-	if (tile == 'C')
+	else if (tile == 'C')
 		sprite = game->textures.collectible;
-	if (tile == 'E')
+	else if (tile == 'E')
 		sprite = game->textures.exit;
-	return ;
+	else
+		return ;
 	if (sprite)
 		mlx_put_image_to_window(game->mlx, game->win, sprite, x * 32, y * 32);
 }
