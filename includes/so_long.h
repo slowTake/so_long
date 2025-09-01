@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 12:15:05 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/09/01 09:54:02 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/09/01 11:42:03 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define SO_LONG_H
 
 # include "flood_fill.h"
-# include "keys.h"
+# include "game_assets.h"
 # include "libft.h"
 # include "minilibx/mlx.h"
 
@@ -48,8 +48,15 @@ int		floodfill(t_map_info *info, int x, int y);
 int		flood_find_player(char **map, int *x, int *y);
 int		**create_visited_array(int rows, int cols);
 
-// hooks
+// hook
 
-int		key_hook(int keycode, t_vars *vars);
+int		key_hook(int keycode, t_game *vars);
+
+// game
+
+int		load_textures(t_game *game);
+void	render_tile(t_game *game, char tile, int x, int y);
+void	render_map(t_game *game);
+void	cleanup_textures(t_game *game);
 
 #endif

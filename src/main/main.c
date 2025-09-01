@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 12:12:41 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/09/01 09:56:14 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/09/01 11:43:08 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,23 @@
 
 int	main(int argc, char **argv)
 {
-	t_vars	vars;
+	t_game	game;
 
+	game.mlx = mlx_init();
+	game.win = mlx_new_window(game.mlx, 800, 600, "Hello world!");
 	if (argc == 2)
+	{
 		parse_map(argv[1]);
+		if (!load_textures(&game))
+		{
+			ft_printf("Error textures\n");
+			return (1);
+		}
+		render_map(&game);
+		mlx_key_hook(game.win, key_hook, &game);
+		mlx_loop(game.mlx);
+	}
 	else
 		ft_putstr_fd("Give map name", 2);
-	vars.mlx = mlx_init();
-	vars.win = mlx_new_window(vars.mlx, 640, 480, "Hello world!");
-	mlx_key_hook(vars.win, key_hook, &vars);
-	mlx_loop(vars.mlx);
+	return (0);
 }
-
-/*
-parse map
-handle user input
-
-*/
