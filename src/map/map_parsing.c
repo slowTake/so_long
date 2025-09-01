@@ -6,31 +6,28 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 12:14:31 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/09/01 11:41:57 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/09/01 16:17:52 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 #include <stdio.h>
 
-void	parse_map(char *filename)
+void	parse_map(t_game *game, char *filename)
 {
 	char	*map_contents;
-	int		width;
-	int		height;
 
+	// int		width;
+	// int		height;
 	parse_arg(filename);
 	map_contents = read_map(filename);
-	print_map(map_contents);
 	check_map_tile(map_contents);
-	width = map_width(map_contents);
-	height = map_height(map_contents);
-	// line_validation(map_contents, width, height);
-	// check_map_boundaries(map_contents);
+	game->map = ft_split(map_contents, '\n');
+	//	print_map(map_contents); // remove after
+	//	width = map_width(map_contents);
+	//	height = map_height(map_contents);
 	check_objects(map_contents);
 	free(map_contents);
-	// check if all lines match in length
-	// does it for a rectangle
 }
 
 char	*read_map(char *filename)

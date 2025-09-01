@@ -6,7 +6,7 @@
 #    By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/04 12:25:20 by pnurmi            #+#    #+#              #
-#    Updated: 2025/09/01 09:21:45 by pnurmi           ###   ########.fr        #
+#    Updated: 2025/09/01 15:30:37 by pnurmi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,13 +20,14 @@ INC_DIR     := includes
 
 # Source Files: Manually listed with full paths
 SRC        := $(SRC_DIR)/main/main.c \
-               $(SRC_DIR)/map/dimensions.c \
-			   $(SRC_DIR)/utility/error.c \
-			   $(SRC_DIR)/utility/flood_fill.c \
                $(SRC_DIR)/map/map_parsing.c \
 			   $(SRC_DIR)/map/map_checks.c \
+               $(SRC_DIR)/map/dimensions.c \
                $(SRC_DIR)/game/hooks.c \
-			   $(SRC_DIR)/parsing/arg_parse.c
+			   $(SRC_DIR)/game/textures.c \
+			   $(SRC_DIR)/utility/error.c \
+			   $(SRC_DIR)/utility/flood_fill.c \
+			   $(SRC_DIR)/parsing/arg_parse.c 
 
 # Header File for so_long
 HEADER      := so_long.h

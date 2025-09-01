@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 12:12:41 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/09/01 11:43:08 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/09/01 16:20:11 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	main(int argc, char **argv)
 	game.win = mlx_new_window(game.mlx, 800, 600, "Hello world!");
 	if (argc == 2)
 	{
-		parse_map(argv[1]);
+		parse_map(&game, argv[1]);
 		if (!load_textures(&game))
 		{
 			ft_printf("Error textures\n");
