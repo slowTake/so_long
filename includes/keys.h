@@ -1,33 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   keys.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/15 12:12:41 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/09/01 09:56:14 by pnurmi           ###   ########.fr       */
+/*   Created: 2025/09/01 09:45:50 by pnurmi            #+#    #+#             */
+/*   Updated: 2025/09/01 09:48:22 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#ifndef KEYS_H
+# define KEYS_H
 
-int	main(int argc, char **argv)
+typedef struct s_vars
 {
-	t_vars	vars;
+	void	*mlx;
+	void	*win;
+}			t_vars;
 
-	if (argc == 2)
-		parse_map(argv[1]);
-	else
-		ft_putstr_fd("Give map name", 2);
-	vars.mlx = mlx_init();
-	vars.win = mlx_new_window(vars.mlx, 640, 480, "Hello world!");
-	mlx_key_hook(vars.win, key_hook, &vars);
-	mlx_loop(vars.mlx);
-}
-
-/*
-parse map
-handle user input
-
-*/
+#endif

@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 12:15:05 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/09/01 09:07:11 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/09/01 09:54:02 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 # define SO_LONG_H
 
 # include "flood_fill.h"
+# include "keys.h"
 # include "libft.h"
+# include "minilibx/mlx.h"
 
 // Meeps
 void	parse_map(char *filename);
@@ -45,5 +47,9 @@ void	parse_arg(char *argv);
 int		floodfill(t_map_info *info, int x, int y);
 int		flood_find_player(char **map, int *x, int *y);
 int		**create_visited_array(int rows, int cols);
+
+// hooks
+
+int		key_hook(int keycode, t_vars *vars);
 
 #endif
