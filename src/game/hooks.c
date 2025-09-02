@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 12:19:48 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/09/02 13:50:35 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/09/02 15:57:25 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,18 +31,61 @@ int	key_hook(int keycode, t_game *game)
 	return (0);
 }
 
-// void	move_up(t_game *game)
-// {
+int	move_up(t_game *game, int x, int y)
+{
+	int	collectibles;
 
-// }
+	if (game->map[y + 1][x] == '1')
+		return (0);
+	if (game->map[y + 1][x] == 'E')
+		if (collectibles = 0)
+			return (1);
+	// check collectibles
+	if (game->map[y + 1][x] == '0')
+		game_player_position(game, x + 1, y);
+	if (game->map[y + 1][x] == 'C')
+		collectibles--;
+	return (1);
+}
 
-// void	move_down(t_game *game)
-// {
-// }
-// void	move_right(t_game *game)
-// {
-// }
+int	move_down(t_game *game, int x, int y)
+{
+	int	collectibles;
 
-// void	move_left(t_game *game)
-// {
-// }
+	if (game->map[y - 1][x] == '1')
+		return (0);
+	else if (game->map[y - 1][x] == 'E')
+		if (collectibles = 0)
+			return (1);
+	// check collectibles
+	game_player_position(game, x - 1, y);
+	return ;
+}
+int	move_right(t_game *game, int x, int y)
+{
+	int	collectibles;
+
+	if (game->map[y][x + 1] == '1')
+		return (0);
+	if (game->map[y][x + 1] == 'E')
+		if (collectibles = 0)
+			return (1);
+	// check collectibles
+	game_player_position(game, x, y + 1);
+	return ;
+}
+
+int	move_left(t_game *game, int x, int y)
+{
+	int	collectibles;
+
+	// add collectibles counter or function
+	if (game->map[y][x - 1] == '1')
+		return (0);
+	if (game->map[y][x - 1] == 'E')
+		if (collectibles = 0)
+			return (1);
+	// check collectibles
+	game_player_position(game, x, y - 1);
+	return (1);
+}

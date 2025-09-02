@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 12:15:05 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/09/02 13:41:14 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/09/02 15:46:38 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,13 @@ void	render_tile(t_game *game, char tile, int x, int y);
 void	render_map(t_game *game);
 void	cleanup_textures(t_game *game);
 void	execute_game(char *argv);
+void	game_player_position(t_game *game, int x, int y);
 
 // movement
 int		key_hook(int keycode, t_game *game);
-void	move_up(t_game *game);
-void	move_down(t_game *game);
-void	move_left(t_game *game);
-void	move_right(t_game *game);
+int		move_up(t_game *game, int x, int y);
+int		move_down(t_game *game, int x, int y);
+int		move_left(t_game *game, int x, int y);
+int		move_right(t_game *game, int x, int y);
 
 #endif

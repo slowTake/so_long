@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 09:41:57 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/09/02 13:50:54 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/09/02 15:37:30 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,6 @@ void	execute_game(char *argv)
 // {
 // }
 
-// void	game_player_position(t_game *game)
-// {
-// }
+void	game_player_position(t_game *game, int x, int y)
+{
+}
