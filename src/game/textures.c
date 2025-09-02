@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 15:28:49 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/09/02 08:46:50 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/09/02 11:02:10 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ void	render_tile(t_game *game, char tile, int x, int y)
 	if (sprite)
 		mlx_put_image_to_window(game->mlx, game->win, sprite, x * 32, y * 32);
 }
+
 void	render_map(t_game *game)
 {
 	int x, y;

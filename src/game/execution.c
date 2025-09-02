@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   game_execution.c                                   :+:      :+:    :+:   */
+/*   execution.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 09:41:57 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/09/02 10:30:00 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/09/02 13:50:54 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	execute_game(char *argv)
 {
-	t_game game;
+	t_game	game;
 
 	game.mlx = mlx_init();
 	game.win = mlx_new_window(game.mlx, 1920, 1080, "so_long");
@@ -28,3 +28,11 @@ void	execute_game(char *argv)
 	mlx_key_hook(game.win, key_hook, &game);
 	mlx_loop(game.mlx);
 }
+
+// int	game_collectibles(int collectibles)
+// {
+// }
+
+// void	game_player_position(t_game *game)
+// {
+// }

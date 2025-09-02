@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 12:19:48 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/09/01 15:29:56 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/09/02 13:50:35 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,27 @@ int	key_hook(int keycode, t_game *game)
 	}
 	if (keycode == 119)
 		printf("Moving up!\n");
-	if (keycode == 97)
-		printf("Moving left!\n");
 	if (keycode == 115)
 		printf("Moving down!\n");
 	if (keycode == 100)
 		printf("Moving right!\n");
+	if (keycode == 97)
+		printf("Moving left!\n");
 	return (0);
 }
+
+// void	move_up(t_game *game)
+// {
+
+// }
+
+// void	move_down(t_game *game)
+// {
+// }
+// void	move_right(t_game *game)
+// {
+// }
+
+// void	move_left(t_game *game)
+// {
+// }
