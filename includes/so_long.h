@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 12:15:05 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/09/01 15:33:49 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/09/02 10:30:33 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,6 @@ int		load_textures(t_game *game);
 void	render_tile(t_game *game, char tile, int x, int y);
 void	render_map(t_game *game);
 void	cleanup_textures(t_game *game);
+void	execute_game(char *argv);
 
 #endif

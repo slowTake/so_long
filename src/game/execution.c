@@ -1,22 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   game_execution.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/15 12:12:41 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/09/02 10:25:25 by pnurmi           ###   ########.fr       */
+/*   Created: 2025/09/02 09:41:57 by pnurmi            #+#    #+#             */
+/*   Updated: 2025/09/02 10:30:00 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(int argc, char **argv)
+void	execute_game(char *argv)
 {
-	if (argc == 2)
-		execute_game(argv[1]);
-	else
-		ft_putstr_fd("Enter a valid map", 2);
-	return (0);
+	t_game game;
+
+	game.mlx = mlx_init();
+	game.win = mlx_new_window(game.mlx, 1920, 1080, "so_long");
+	parse_map(&game, argv);
+	if (!load_textures(&game))
+	{
+		ft_printf("Error textures\n");
+		error_exit();
+	}
+	render_map(&game);
+	mlx_key_hook(game.win, key_hook, &game);
+	mlx_loop(game.mlx);
 }
