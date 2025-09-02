@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 15:28:49 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/09/01 16:41:37 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/09/02 08:46:50 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,4 +82,18 @@ void	render_map(t_game *game)
 		}
 		y++;
 	}
+}
+
+void	texture_cleanup(t_game *game)
+{
+	if (game->textures.player)
+		mlx_destroy_image(game->mlx, game->textures.player);
+	if (game->textures.wall)
+		mlx_destroy_image(game->mlx, game->textures.wall);
+	if (game->textures.collectible)
+		mlx_destroy_image(game->mlx, game->textures.collectible);
+	if (game->textures.floor)
+		mlx_destroy_image(game->mlx, game->textures.floor);
+	if (game->textures.exit)
+		mlx_destroy_image(game->mlx, game->textures.exit);
 }
