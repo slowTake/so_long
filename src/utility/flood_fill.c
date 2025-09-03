@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 10:31:34 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/09/03 17:15:38 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/09/03 18:18:57 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,34 +27,71 @@ void	floodfill(t_map_info *info, int x, int y)
 	floodfill(info, x, y - 1);
 }
 
-char	**create_map_copy(t_game *game)
+void	initialize_floodfill(t_game *game, t_map_info *info)
 {
-	int		i;
-	char	**map_copy;
+	get_map_dimensions(game);
+	info->map = game->map;
+	info->rows = game->map_height;
+	info->cols = game->map_width;
+	info->visited = create_visited_array(info->rows, info->cols);
+	if (!info->visited)
+		error_exit(game, "Error: Visited array creation failed.\n");
+}
+
+void	check_unreachable(t_game *game, t_map_info *info)
+{
+	int	y;
+	int	x;
+
+	y = 0;
+	while (y < info->rows)
+	{
+		x = 0;
+		while (x < info->cols)
+		{
+			if ((info->map[y][x] == 'C' || info->map[y][x] == 'E')
+				&& info->visited[y][x] == 0)
+			{
+				cleanup_visited_array(info);
+				error_exit(game, "Error: Unreachable collectible or exit.\n");
+			}
+			x++;
+		}
+		y++;
+	}
+}
+
+int	**create_visited_array(int rows, int cols)
+{
+	int	i;
+	int	j;
+	int	**visited;
 
 	i = 0;
-	map_copy = malloc(game->map_height * sizeof(char *));
-	if (!map_copy)
+	visited = malloc(rows * sizeof(int *));
+	if (!visited)
 		return (NULL);
-	while (i < game->map_height)
+	while (i < rows)
 	{
-		map_copy[i] = ft_strdup(game->map[i]);
-		if (!map_copy[i])
+		visited[i] = malloc(cols * sizeof(int));
+		if (!visited[i])
 		{
-			while (i > 0)
+			j = 0;
+			while (j < i)
 			{
-				free(map_copy[i - 1]);
-				i--;
+				free(visited[j]);
+				j++;
 			}
-			free(map_copy);
+			free(visited);
 			return (NULL);
+		}
+		j = 0;
+		while (j < cols)
+		{
+			visited[i][j] = 0;
+			j++;
 		}
 		i++;
 	}
-	return (map_copy);
+	return (visited);
 }
-
-// void	free_visited_array(int **visited, int height);
-// {
-// 	int i
-// }

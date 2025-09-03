@@ -6,22 +6,21 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/22 15:02:56 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/09/03 17:37:23 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/09/03 18:01:07 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	check_objects(char *mapfile)
+void	check_objects(t_game *game, char *mapfile)
 {
 	if (count_objects(mapfile, 'P') != 1)
-		error_object(mapfile, "Player count\n");
+		error_exit(game, "Error: Invalid player count\n");
 	if (count_objects(mapfile, 'C') <= 0)
-		error_object(mapfile, "Collectibles count\n");
+		error_exit(game, "Error: No collectibles found\n");
 	if (count_objects(mapfile, 'E') != 1)
-		error_object(mapfile, "Exit count\n");
-	else
-		ft_putstr_fd("Valid Map\n", 2);
+		error_exit(game, "Error: Invalid exit count\n");
+	ft_putstr_fd("Valid Map\n", 2);
 }
 
 int	count_objects(char *map, char c)
@@ -67,6 +66,16 @@ int	get_map_dimensions(t_game *game)
 		game->map_height++;
 	game->map_width = ft_strlen(game->map[0]);
 	return (1);
+}
+
+void	validate_map_path(t_game *game)
+{
+	t_map_info	info;
+
+	initialize_floodfill(game, &info);
+	floodfill(&info, game->player_x, game->player_y);
+	check_unreachable(game, &info);
+	cleanup_visited_array(&info);
 }
 
 void	print_map(char *map)

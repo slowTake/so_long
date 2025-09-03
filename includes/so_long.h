@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 12:15:05 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/09/03 17:31:52 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/09/03 18:14:01 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	parse_map(t_game *game, char *filename);
 char	*read_map(char *filename);
 void	print_map(char *map);
 int		count_objects(char *map, char c);
-void	check_objects(char *mapfile);
+void	check_objects(t_game *game, char *mapfile);
 void	check_map_boundaries(char *map);
 void	line_validation(char *map);
 int		map_width(char *map);
@@ -38,12 +38,16 @@ void	error_map(char *mapfile);
 void	error_free_game(char *mapfile, char *error_msg, t_game *game);
 void	error_exit(t_game *game, char *message);
 
-// pasing
+// parsing
 void	parse_arg(char *argv);
+void	read_and_split_map(t_game *game, char *filename);
 
 // flood fill
 void	floodfill(t_map_info *info, int x, int y);
-char	**create_map_copy(t_game *game);
+void	validate_map_path(t_game *game);
+void	initialize_floodfill(t_game *game, t_map_info *info);
+void	check_unreachable(t_game *game, t_map_info *info);
+int		**create_visited_array(int rows, int cols);
 
 // game
 
@@ -70,5 +74,6 @@ int		move_right(t_game *game);
 void	cleanup_game(t_game *game);
 void	texture_cleanup(t_game *game);
 void	exit_game(t_game *game);
+void	cleanup_visited_array(t_map_info *info);
 
 #endif

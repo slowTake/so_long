@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 11:23:37 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/08/29 14:23:10 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/09/03 17:45:37 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,5 @@ void	parse_arg(char *argv)
 	extension = ".ber";
 	result = ft_strnstr(filename, extension, ft_strlen(filename));
 	if (result == NULL)
-		error_exit();
+		error_exit(NULL, "Error");
 }
