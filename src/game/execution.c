@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 09:41:57 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/09/02 15:37:30 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/09/03 09:05:42 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,4 @@ void	execute_game(char *argv)
 	render_map(&game);
 	mlx_key_hook(game.win, key_hook, &game);
 	mlx_loop(game.mlx);
-}
-
-// int	game_collectibles(int collectibles)
-// {
-// }
-
-void	game_player_position(t_game *game, int x, int y)
-{
 }
