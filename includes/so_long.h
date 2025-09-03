@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 12:15:05 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/09/03 09:40:49 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/09/03 12:39:16 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void	render_tile(t_game *game, char tile, int x, int y);
 void	render_map(t_game *game);
 void	cleanup_textures(t_game *game);
 void	execute_game(char *argv);
+void	find_player(t_game *game);
 
 // tracking
 void	game_player_position(t_game *game, int x, int y);

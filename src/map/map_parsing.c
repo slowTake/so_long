@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 12:14:31 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/09/03 10:38:56 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/09/03 12:39:31 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	parse_map(t_game *game, char *filename)
 	map_contents = read_map(filename);
 	check_map_tile(map_contents);
 	game->map = ft_split(map_contents, '\n');
+	find_player(game);
 	print_map(map_contents); // remove after<<<<
 	check_objects(map_contents);
 	free(map_contents);
@@ -51,4 +52,25 @@ char	*read_map(char *filename)
 	}
 	close(fd);
 	return (map_whole);
+}
+
+void	find_player(t_game *game)
+{
+	int y = 0;
+
+	while (game->map[y])
+	{
+		int x = 0;
+		while (game->map[y][x])
+		{
+			if (game->map[y][x] == 'P')
+			{
+				game->player_x = x;
+				game->player_y = y;
+				break ;
+			}
+			x++;
+		}
+		y++;
+	}
 }
