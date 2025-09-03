@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 12:15:05 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/09/03 12:39:16 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/09/03 12:56:21 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	parse_arg(char *argv);
 
 // flood fill
 int		floodfill(t_map_info *info, int x, int y);
-int		flood_find_player(char **map, int *x, int *y);
+int	flood_find_player(char **map, int *x, int *y); //<<<<<<<<<<<delete
 int		**create_visited_array(int rows, int cols);
 
 // game
@@ -55,6 +55,7 @@ void	find_player(t_game *game);
 
 // tracking
 void	game_player_position(t_game *game, int x, int y);
+void	count_collectibles(t_game *game);
 
 // movement
 int		key_hook(int keycode, t_game *game);

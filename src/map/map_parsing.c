@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 12:14:31 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/09/03 12:39:31 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/09/03 13:18:50 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,14 @@ void	parse_map(t_game *game, char *filename)
 {
 	char	*map_contents;
 
+	game->collectible = 0;
 	parse_arg(filename);
 	map_contents = read_map(filename);
 	check_map_tile(map_contents);
 	game->map = ft_split(map_contents, '\n');
 	find_player(game);
+	count_collectibles(game);
+	ft_printf("%d\n", game->collectible);
 	print_map(map_contents); // remove after<<<<
 	check_objects(map_contents);
 	free(map_contents);
@@ -56,11 +59,13 @@ char	*read_map(char *filename)
 
 void	find_player(t_game *game)
 {
-	int y = 0;
+	int	y;
+	int	x;
 
+	y = 0;
 	while (game->map[y])
 	{
-		int x = 0;
+		x = 0;
 		while (game->map[y][x])
 		{
 			if (game->map[y][x] == 'P')
@@ -68,6 +73,27 @@ void	find_player(t_game *game)
 				game->player_x = x;
 				game->player_y = y;
 				break ;
+			}
+			x++;
+		}
+		y++;
+	}
+}
+
+void	count_collectibles(t_game *game)
+{
+	int	x;
+	int	y;
+
+	y = 0;
+	while (game->map[y])
+	{
+		x = 0;
+		while (game->map[y][x])
+		{
+			if (game->map[y][x] == 'C')
+			{
+				game->collectible++;
 			}
 			x++;
 		}

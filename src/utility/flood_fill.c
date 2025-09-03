@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 10:31:34 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/09/01 09:07:05 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/09/03 12:56:31 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ int	floodfill(t_map_info *info, int x, int y)
 	return (1);
 }
 
-int	flood_find_player(char **map, int *x, int *y)
+int	flood_find_player(char **map, int *x, int *y) // DELETE<<<<<<<<<<<<<<<<<<<
 {
-	int	i;
-	int	j;
+	int i;
+	int j;
 
 	i = 0;
 	while (map[i])
