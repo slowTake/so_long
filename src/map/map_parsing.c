@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 12:14:31 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/09/03 18:19:00 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/09/03 18:27:19 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	parse_map(t_game *game, char *filename)
 {
 	game->collectible = 0;
 	read_and_split_map(game, filename);
+	get_map_dimensions(game);
+	check_walls(game);
 	find_player(game);
 	count_collectibles(game);
 	validate_map_path(game);

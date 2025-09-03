@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 12:15:05 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/09/03 18:14:01 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/09/03 18:28:59 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int		map_width(char *map);
 int		map_height(char *map);
 void	map_floodfill_validation(char *map);
 int		get_map_dimensions(t_game *game);
+void	check_walls(t_game *game);
 
 // error
 void	error_object(char *mapfile, char *error_msg);

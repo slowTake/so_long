@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 15:28:49 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/09/03 16:47:02 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/09/03 18:33:36 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,8 @@ void	render_map(t_game *game)
 
 void	texture_cleanup(t_game *game)
 {
+	if (!game || !game->mlx)
+		return ;
 	if (game->textures.player)
 		mlx_destroy_image(game->mlx, game->textures.player);
 	if (game->textures.wall)

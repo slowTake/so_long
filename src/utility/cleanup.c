@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 16:06:34 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/09/03 18:02:41 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/09/03 18:36:04 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	cleanup_game(t_game *game)
 {
 	int	i;
 
+	if (!game)
+		return ;
 	if (game->map)
 	{
 		i = 0;
@@ -31,7 +33,6 @@ void	cleanup_game(t_game *game)
 		mlx_destroy_window(game->mlx, game->win);
 	if (game->mlx)
 		mlx_destroy_display(game->mlx);
-	exit(0);
 }
 
 void	exit_game(t_game *game)

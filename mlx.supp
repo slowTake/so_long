@@ -1,0 +1,22 @@
+{
+   <libX11_leaks>
+   Memcheck:Leak
+   fun:XOpenDisplay
+   fun:XrmGetFileDatabase
+   fun:_XrmInitParseInfo
+   fun:_XlcDefaultLoader
+   fun:_XOpenLC
+   fun:_XlcSetConverter
+   fun:_XlcCreateLC
+   fun:_XlcAddUtf8Converters
+   fun:XGetErrorDatabaseText
+   fun:XInitExtension
+   fun:XextAddDisplay
+   fun:XkbUseExtension
+}
+{
+   <libxcb_leaks>
+   Memcheck:Leak
+   fun:xcb_wait_for_reply64
+   fun:_XConnectXCB
+}
