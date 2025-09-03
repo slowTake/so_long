@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/22 15:02:56 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/09/03 18:01:07 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/09/03 18:50:12 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,18 +76,4 @@ void	validate_map_path(t_game *game)
 	floodfill(&info, game->player_x, game->player_y);
 	check_unreachable(game, &info);
 	cleanup_visited_array(&info);
-}
-
-void	print_map(char *map)
-{
-	int	i;
-
-	i = 0;
-	ft_printf("\n\n");
-	while (map[i])
-	{
-		ft_printf("%c", map[i]);
-		i++;
-	}
-	ft_printf("\n\n\n");
 }

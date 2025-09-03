@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 16:06:34 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/09/03 18:36:04 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/09/03 19:07:44 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ void	cleanup_game(t_game *game)
 
 void	exit_game(t_game *game)
 {
-	mlx_destroy_window(game->mlx, game->win);
 	cleanup_game(game);
 	exit(0);
 }
@@ -46,11 +45,14 @@ void	cleanup_visited_array(t_map_info *info)
 {
 	int	i;
 
+	if (!info || !info->visited)
+		return ;
 	i = 0;
-	while (i < info->rows)
+	while (i < info->rows && info->visited[i])
 	{
 		free(info->visited[i]);
 		i++;
 	}
 	free(info->visited);
+	info->visited = NULL;
 }

@@ -6,12 +6,11 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 12:14:31 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/09/03 18:27:19 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/09/03 18:49:33 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-#include <stdio.h>
 
 void	parse_map(t_game *game, char *filename)
 {

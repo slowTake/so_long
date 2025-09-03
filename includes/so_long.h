@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 12:15:05 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/09/03 18:28:59 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/09/03 18:50:03 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 // Meeps
 void	parse_map(t_game *game, char *filename);
 char	*read_map(char *filename);
-void	print_map(char *map);
 int		count_objects(char *map, char c);
 void	check_objects(t_game *game, char *mapfile);
 void	check_map_boundaries(char *map);
