@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 15:28:49 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/09/02 11:02:10 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/09/03 13:45:12 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,4 +97,5 @@ void	texture_cleanup(t_game *game)
 		mlx_destroy_image(game->mlx, game->textures.floor);
 	if (game->textures.exit)
 		mlx_destroy_image(game->mlx, game->textures.exit);
+	mlx_destroy_display(game->mlx);
 }

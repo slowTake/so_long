@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 12:19:48 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/09/03 09:59:55 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/09/03 13:49:13 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,7 @@ int	move_up(t_game *game)
 	if (game->map[next_y][next_x] == 'E')
 	{
 		if (game->collectible == 0)
-		{
-			mlx_destroy_window(game->mlx, game->win);
-			exit(0);
-		}
+			exit_game(game);
 		return (0);
 	}
 	if (game->map[next_y][next_x] == 'C')
@@ -70,10 +67,7 @@ int	move_down(t_game *game)
 	if (game->map[next_y][next_x] == 'E')
 	{
 		if (game->collectible == 0)
-		{
-			mlx_destroy_window(game->mlx, game->win);
-			exit(0);
-		}
+			exit_game(game);
 		return (0);
 	}
 	if (game->map[next_y][next_x] == 'C')
@@ -97,10 +91,7 @@ int	move_right(t_game *game)
 	if (game->map[next_y][next_x] == 'E')
 	{
 		if (game->collectible == 0)
-		{
-			mlx_destroy_window(game->mlx, game->win);
-			exit(0);
-		}
+			exit_game(game);
 		return (0);
 	}
 	if (game->map[next_y][next_x] == 'C')
@@ -124,10 +115,7 @@ int	move_left(t_game *game)
 	if (game->map[next_y][next_x] == 'E')
 	{
 		if (game->collectible == 0)
-		{
-			mlx_destroy_window(game->mlx, game->win);
-			exit(0);
-		}
+			exit_game(game);
 		return (0);
 	}
 	if (game->map[next_y][next_x] == 'C')

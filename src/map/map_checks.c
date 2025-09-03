@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/22 15:02:56 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/09/03 09:27:21 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/09/03 14:47:55 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	check_map_tile(char *map)
 		if (map[i] != '1' && map[i] != '0' && map[i] != 'E' && map[i] != 'C'
 			&& map[i] != 'P' && map[i] != '\n')
 		{
-			error_object(map, "Invalid object found\n");
+			error_map(map);
 		}
 		i++;
 	}
@@ -71,7 +71,7 @@ void	check_map_boundaries(char *map)
 	while (map[i] != '\n')
 	{
 		if (map[i] != '1')
-			error_object(map, "invalid 1st line");
+			error_map(map);
 		i++;
 	}
 }

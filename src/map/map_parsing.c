@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 12:14:31 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/09/03 13:18:50 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/09/03 14:48:43 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ void	parse_map(t_game *game, char *filename)
 	game->map = ft_split(map_contents, '\n');
 	find_player(game);
 	count_collectibles(game);
-	ft_printf("%d\n", game->collectible);
-	print_map(map_contents); // remove after<<<<
 	check_objects(map_contents);
 	free(map_contents);
 }

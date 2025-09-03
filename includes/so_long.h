@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 12:15:05 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/09/03 12:56:21 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/09/03 14:48:18 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void	error_object(char *mapfile, char *error_msg);
 void	check_map_tile(char *map);
 void	error_map(char *mapfile);
 void	error_exit(void);
+void	error_free_game(char *mapfile, char *error_msg, t_game *game);
 
 // pasing
 void	parse_arg(char *argv);
@@ -49,9 +50,10 @@ int		**create_visited_array(int rows, int cols);
 int		load_textures(t_game *game);
 void	render_tile(t_game *game, char tile, int x, int y);
 void	render_map(t_game *game);
-void	cleanup_textures(t_game *game);
+void	texture_cleanup(t_game *game);
 void	execute_game(char *argv);
 void	find_player(t_game *game);
+void	exit_game(t_game *game);
 
 // tracking
 void	game_player_position(t_game *game, int x, int y);
