@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 12:14:31 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/09/03 14:48:43 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/09/03 17:29:07 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char	*read_map(char *filename)
 
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
-		error_exit();
+		error_exit(NULL, "Error: couldnt open map");
 	map_whole = ft_strdup("");
 	while ((line = get_next_line(fd)) != NULL)
 	{

@@ -1,28 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   execution.c                                        :+:      :+:    :+:   */
+/*   cleanup.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/02 09:41:57 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/09/03 16:28:47 by pnurmi           ###   ########.fr       */
+/*   Created: 2025/09/03 16:06:34 by pnurmi            #+#    #+#             */
+/*   Updated: 2025/09/03 16:22:14 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	execute_game(char *argv)
+void	cleanup_game(t_game *game)
 {
-	t_game	game;
+	int	i;
 
-	game.mlx = mlx_init();
-	game.win = mlx_new_window(game.mlx, 1920, 1080, "so_long");
-	parse_map(&game, argv);
-	if (!load_textures(&game))
-		error_exit(&game, "Error");
-	render_map(&game);
-	mlx_key_hook(game.win, key_hook, &game);
-	mlx_loop(game.mlx);
-	error_exit(&game, "");
+	if (game->map)
+	{
+		i = 0;
+		while (game->map[i])
+		{
+			free(game->map[i]);
+			i++;
+		}
+		free(game->map);
+	}
+	texture_cleanup(game);
+	if (game->win)
+		mlx_destroy_window(game->mlx, game->win);
+	if (game->mlx)
+		mlx_destroy_display(game->mlx);
+	exit(0);
+}
+
+void	exit_game(t_game *game)
+{
+	mlx_destroy_window(game->mlx, game->win);
+	cleanup_game(game);
+	exit(0);
 }

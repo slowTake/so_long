@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 15:28:49 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/09/03 13:45:12 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/09/03 16:47:02 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,7 @@ void	render_map(t_game *game)
 	{
 		x = 0;
 		if (!game->map[y])
-		{
-			ft_printf("error\n");
-			error_exit();
-		}
+			error_exit(game, "error");
 		while (game->map[y][x])
 		{
 			render_tile(game, game->map[y][x], x, y);
@@ -97,5 +94,4 @@ void	texture_cleanup(t_game *game)
 		mlx_destroy_image(game->mlx, game->textures.floor);
 	if (game->textures.exit)
 		mlx_destroy_image(game->mlx, game->textures.exit);
-	mlx_destroy_display(game->mlx);
 }

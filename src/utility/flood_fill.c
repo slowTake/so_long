@@ -6,76 +6,52 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 10:31:34 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/09/03 12:56:31 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/09/03 17:15:38 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	floodfill(t_map_info *info, int x, int y)
+void	floodfill(t_map_info *info, int x, int y)
 {
 	if (x < 0 || x >= info->cols || y < 0 || y >= info->rows)
-		return (0);
-	if (info->visited[y][x] == 1 || info->visited[y][x] == '1')
-		return (0);
+		return ;
+	if (info->map[y][x] == '1')
+		return ;
+	if (info->visited[y][x] == 1)
+		return ;
 	info->visited[y][x] = 1;
 	floodfill(info, x + 1, y);
 	floodfill(info, x - 1, y);
 	floodfill(info, x, y + 1);
 	floodfill(info, x, y - 1);
-	return (1);
 }
 
-int	flood_find_player(char **map, int *x, int *y) // DELETE<<<<<<<<<<<<<<<<<<<
+char	**create_map_copy(t_game *game)
 {
-	int i;
-	int j;
+	int		i;
+	char	**map_copy;
 
 	i = 0;
-	while (map[i])
+	map_copy = malloc(game->map_height * sizeof(char *));
+	if (!map_copy)
+		return (NULL);
+	while (i < game->map_height)
 	{
-		j = 0;
-		while (map[i][j])
+		map_copy[i] = ft_strdup(game->map[i]);
+		if (!map_copy[i])
 		{
-			if (map[i][j] == 'P')
+			while (i > 0)
 			{
-				*x = j;
-				*y = i;
-				return (1);
+				free(map_copy[i - 1]);
+				i--;
 			}
-			j++;
+			free(map_copy);
+			return (NULL);
 		}
 		i++;
 	}
-	return (0);
-}
-
-int	**create_visited_array(int rows, int cols)
-{
-	int	i;
-	int	j;
-	int	**visited;
-
-	i = 0;
-	visited = malloc(rows * sizeof(int *));
-	if (!visited)
-		return (NULL);
-	while (i < rows)
-	{
-		visited[i] = malloc(cols * sizeof(int));
-		if (!visited[i])
-		{
-			j = 0;
-			while (j < i)
-			{
-				free(visited[j]);
-				j++;
-			}
-			free(visited);
-			return (NULL);
-		}
-	}
-	return (visited);
+	return (map_copy);
 }
 
 // void	free_visited_array(int **visited, int height);

@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/22 15:02:56 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/09/03 14:47:55 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/09/03 17:37:23 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,22 +58,15 @@ void	check_map_tile(char *map)
 	}
 }
 
-/*
-REDUNDANT
-*/
-void	check_map_boundaries(char *map)
+int	get_map_dimensions(t_game *game)
 {
-	int	i;
-
-	i = 0;
-	if (map == NULL)
-		error_map(map);
-	while (map[i] != '\n')
-	{
-		if (map[i] != '1')
-			error_map(map);
-		i++;
-	}
+	game->map_height = 0;
+	if (!game->map)
+		return (0);
+	while (game->map[game->map_height])
+		game->map_height++;
+	game->map_width = ft_strlen(game->map[0]);
+	return (1);
 }
 
 void	print_map(char *map)

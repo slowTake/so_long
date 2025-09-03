@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 11:17:31 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/09/03 10:04:05 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/09/03 16:38:51 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_game
 	int			collectible;
 	int			map_width;
 	int			map_height;
+	int			move_count;
 }				t_game;
 
 #endif

@@ -6,30 +6,11 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 12:19:48 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/09/03 13:49:13 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/09/03 16:37:02 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-int	key_hook(int keycode, t_game *game)
-{
-	printf("Key pressed: %d\n", keycode);
-	if (keycode == 65307)
-	{
-		mlx_destroy_window(game->mlx, game->win);
-		exit(0);
-	}
-	if (keycode == 119)
-		move_up(game);
-	if (keycode == 115)
-		move_down(game);
-	if (keycode == 100)
-		move_right(game);
-	if (keycode == 97)
-		move_left(game);
-	return (0);
-}
 
 int	move_up(t_game *game)
 {

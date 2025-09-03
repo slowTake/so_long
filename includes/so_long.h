@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 12:15:05 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/09/03 14:48:18 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/09/03 17:31:52 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,28 +29,27 @@ void	line_validation(char *map);
 int		map_width(char *map);
 int		map_height(char *map);
 void	map_floodfill_validation(char *map);
+int		get_map_dimensions(t_game *game);
 
 // error
 void	error_object(char *mapfile, char *error_msg);
 void	check_map_tile(char *map);
 void	error_map(char *mapfile);
-void	error_exit(void);
 void	error_free_game(char *mapfile, char *error_msg, t_game *game);
+void	error_exit(t_game *game, char *message);
 
 // pasing
 void	parse_arg(char *argv);
 
 // flood fill
-int		floodfill(t_map_info *info, int x, int y);
-int	flood_find_player(char **map, int *x, int *y); //<<<<<<<<<<<delete
-int		**create_visited_array(int rows, int cols);
+void	floodfill(t_map_info *info, int x, int y);
+char	**create_map_copy(t_game *game);
 
 // game
 
 int		load_textures(t_game *game);
 void	render_tile(t_game *game, char tile, int x, int y);
 void	render_map(t_game *game);
-void	texture_cleanup(t_game *game);
 void	execute_game(char *argv);
 void	find_player(t_game *game);
 void	exit_game(t_game *game);
@@ -58,6 +57,7 @@ void	exit_game(t_game *game);
 // tracking
 void	game_player_position(t_game *game, int x, int y);
 void	count_collectibles(t_game *game);
+void	move_counter(t_game *game);
 
 // movement
 int		key_hook(int keycode, t_game *game);
@@ -65,5 +65,10 @@ int		move_up(t_game *game);
 int		move_down(t_game *game);
 int		move_left(t_game *game);
 int		move_right(t_game *game);
+
+// cleanup
+void	cleanup_game(t_game *game);
+void	texture_cleanup(t_game *game);
+void	exit_game(t_game *game);
 
 #endif
