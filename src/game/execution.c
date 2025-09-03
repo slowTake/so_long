@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 09:41:57 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/09/03 14:07:27 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/09/03 15:43:25 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	execute_game(char *argv)
 	render_map(&game);
 	mlx_key_hook(game.win, key_hook, &game);
 	mlx_loop(game.mlx);
+	exit_game(&game);
 }
 
 void	exit_game(t_game *game)
