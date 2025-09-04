@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 11:23:37 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/09/04 12:41:25 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/09/04 15:20:33 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,9 @@ void	parse_arg(char *argv)
 	extension = ".ber";
 	result = ft_strnstr(filename, extension, ft_strlen(filename));
 	if (result == NULL)
-		error_exit(NULL, "Error");
+		error_exit(NULL, "Error\n");
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
-		error_exit(NULL, "Error: couldnt open map");
+		error_exit(NULL, "Error:\ncouldnt open map\n");
+	close(fd);
 }

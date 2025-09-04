@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 16:33:39 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/09/03 16:42:55 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/09/04 15:53:06 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,11 @@ void	move_counter(t_game *game)
 {
 	game->move_count++;
 	printf("Moves: %d\n", game->move_count);
+}
+
+int	close_window(t_game *game)
+{
+	cleanup_game(game);
+	exit(0);
+	return (0);
 }

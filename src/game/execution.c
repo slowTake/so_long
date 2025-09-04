@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 09:41:57 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/09/04 12:19:45 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/09/04 15:52:36 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,17 @@ void	execute_game(char *argv)
 
 	parse_arg(argv);
 	ft_bzero(&game, sizeof(game));
-	game.mlx = mlx_init();
-	game.win = mlx_new_window(game.mlx, 1920, 1080, "so_long");
 	parse_map(&game, argv);
+	game.mlx = mlx_init();
+	if (!game.mlx)
+		error_exit(NULL, "Error:\nmlx_init failed\n");
+	game.win = mlx_new_window(game.mlx, 3840, 2160, "so_long");
+	if (!game.win)
+		error_exit(NULL, "Error:\nmlx_new_window failed\n");
 	if (!load_textures(&game))
-		error_exit(&game, "Error");
+		error_exit(&game, "Error\n");
 	render_map(&game);
+	mlx_hook(game.win, 17, 0, close_window, &game);
 	mlx_key_hook(game.win, key_hook, &game);
 	mlx_loop(game.mlx);
 	error_exit(&game, "");
@@ -54,8 +59,8 @@ void	find_player(t_game *game)
 
 void	count_collectibles(t_game *game)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	y = 0;
 	while (game->map[y])

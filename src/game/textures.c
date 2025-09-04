@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 15:28:49 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/09/04 10:20:29 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/09/04 15:51:25 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 int	load_textures(t_game *game)
 {
-	int width, height;
+	int	width;
+	int	height;
+
 	game->textures.player = mlx_xpm_file_to_image(game->mlx,
 			"sprites/player.xpm", &width, &height);
 	if (!game->textures.player)
@@ -61,7 +63,9 @@ void	render_tile(t_game *game, char tile, int x, int y)
 
 void	render_map(t_game *game)
 {
-	int x, y;
+	int	x;
+	int	y;
+
 	y = 0;
 	if (!game || !game->map)
 	{
@@ -72,7 +76,7 @@ void	render_map(t_game *game)
 	{
 		x = 0;
 		if (!game->map[y])
-			error_exit(game, "error");
+			error_exit(game, "Error\n");
 		while (game->map[y][x])
 		{
 			render_tile(game, game->map[y][x], x, y);

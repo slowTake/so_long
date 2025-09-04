@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 12:15:05 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/09/04 12:28:58 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/09/04 16:05:54 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void	error_exit(t_game *game, char *message);
 // parsing
 void	parse_arg(char *argv);
 void	read_and_split_map(t_game *game, char *filename);
+char	*ft_strjoin_and_free(char *map_whole, char *line);
 
 // flood fill
 void	floodfill(t_map_info *info, int x, int y);
@@ -57,6 +58,7 @@ void	render_map(t_game *game);
 void	execute_game(char *argv);
 void	find_player(t_game *game);
 void	exit_game(t_game *game);
+int		close_window(t_game *game);
 
 // tracking
 void	game_player_position(t_game *game, int x, int y);
