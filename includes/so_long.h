@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 12:15:05 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/09/04 16:37:18 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/09/04 17:00:49 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,8 @@
 
 // Meeps
 void	parse_map(t_game *game, char *filename);
-
 int		count_objects(char *map, char c);
 void	check_objects(t_game *game, char *mapfile);
-void	check_map_boundaries(char *map);
-void	line_validation(char *map);
-int		map_width(char *map);
-int		map_height(char *map);
-void	map_floodfill_validation(char *map);
 int		get_map_dimensions(t_game *game);
 void	check_walls(t_game *game);
 
@@ -53,7 +47,6 @@ void	check_unreachable(t_game *game, t_map_info *info);
 int		**create_visited_array(int rows, int cols);
 
 // game
-
 int		load_textures(t_game *game);
 void	render_tile(t_game *game, char tile, int x, int y);
 void	render_map(t_game *game);
@@ -63,7 +56,6 @@ void	exit_game(t_game *game);
 int		close_window(t_game *game);
 
 // tracking
-void	game_player_position(t_game *game, int x, int y);
 void	count_collectibles(t_game *game);
 void	move_counter(t_game *game);
 
