@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 12:14:31 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/09/04 16:37:19 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/09/04 17:15:14 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,33 +43,27 @@ char	*read_map(char *filename)
 {
 	int		fd;
 	char	*map_whole;
+	char	*line;
 
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
 		error_exit(NULL, "Error:\ncouldnt open map\n");
-	map_whole = read_all_lines(fd);
-	close(fd);
-	if (!map_whole || map_whole[0] == '\0')
-	{
-		if (map_whole)
-			free(map_whole);
-		error_exit(NULL, "Error:\nMap is empty\n");
-	}
-	return (map_whole);
-}
-
-char	*read_all_lines(int fd)
-{
-	char	*map_whole;
-	char	*line;
-
 	map_whole = ft_strdup("");
-	while ((line = get_next_line(fd)) != NULL)
+	line = get_next_line(fd);
+	while (line != NULL)
 	{
 		map_whole = ft_strjoin_and_free(map_whole, line);
 		if (!map_whole)
-			return (NULL);
+			return (close_and_return_null(fd));
+		line = get_next_line(fd);
 	}
+	if (map_whole[0] == '\0')
+	{
+		free(map_whole);
+		close(fd);
+		error_exit(NULL, "Error:\nMap is empty\n");
+	}
+	close(fd);
 	return (map_whole);
 }
 

@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 12:15:05 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/09/04 17:00:49 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/09/04 17:16:59 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int		get_map_dimensions(t_game *game);
 void	check_walls(t_game *game);
 
 // error
-void	error_object(char *mapfile, char *error_msg);
 void	check_map_tile(char *map);
 void	error_map(char *mapfile);
 void	error_free_game(char *mapfile, char *error_msg, t_game *game);
@@ -37,7 +36,6 @@ void	parse_arg(char *argv);
 void	read_and_split_map(t_game *game, char *filename);
 char	*ft_strjoin_and_free(char *map_whole, char *line);
 char	*read_map(char *filename);
-char	*read_all_lines(int fd);
 
 // flood fill
 void	floodfill(t_map_info *info, int x, int y);
@@ -71,5 +69,6 @@ void	cleanup_game(t_game *game);
 void	texture_cleanup(t_game *game);
 void	exit_game(t_game *game);
 void	cleanup_visited_array(t_map_info *info);
+char	*close_and_return_null(int fd);
 
 #endif

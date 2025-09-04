@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 16:06:34 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/09/04 12:28:48 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/09/04 17:10:29 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,10 @@ void	cleanup_visited_array(t_map_info *info)
 	}
 	free(info->visited);
 	info->visited = NULL;
+}
+
+char	*close_and_return_null(int fd)
+{
+	close(fd);
+	return (NULL);
 }
