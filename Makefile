@@ -6,7 +6,7 @@
 #    By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/04 12:25:20 by pnurmi            #+#    #+#              #
-#    Updated: 2025/09/03 18:28:49 by pnurmi           ###   ########.fr        #
+#    Updated: 2025/09/04 10:46:19 by pnurmi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -86,6 +86,7 @@ $(OBJ_DIR):
 # -------------------- Phony Targets --------------------
 
 .PHONY: all clean fclean re
+.SECONDARY: $(OBJS_C) $(OBJS_S)
 
 all: $(NAME)
 

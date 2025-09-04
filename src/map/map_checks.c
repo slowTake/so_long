@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/22 15:02:56 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/09/03 18:50:12 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/09/04 10:36:41 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,20 @@
 void	check_objects(t_game *game, char *mapfile)
 {
 	if (count_objects(mapfile, 'P') != 1)
+	{
+		free(mapfile);
 		error_exit(game, "Error: Invalid player count\n");
+	}
 	if (count_objects(mapfile, 'C') <= 0)
+	{
+		free(mapfile);
 		error_exit(game, "Error: No collectibles found\n");
+	}
 	if (count_objects(mapfile, 'E') != 1)
+	{
+		free(mapfile);
 		error_exit(game, "Error: Invalid exit count\n");
+	}
 	ft_putstr_fd("Valid Map\n", 2);
 }
 

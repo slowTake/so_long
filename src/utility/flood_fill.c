@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 10:31:34 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/09/03 19:08:15 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/09/04 10:28:05 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ void	check_unreachable(t_game *game, t_map_info *info)
 			if ((info->map[y][x] == 'C' || info->map[y][x] == 'E')
 				&& info->visited[y][x] == 0)
 			{
+				cleanup_visited_array(info);
 				error_exit(game, "Error: Unreachable collectible or exit.\n");
 			}
 			x++;

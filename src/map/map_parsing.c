@@ -6,7 +6,7 @@
 /*   By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 12:14:31 by pnurmi            #+#    #+#             */
-/*   Updated: 2025/09/03 18:49:33 by pnurmi           ###   ########.fr       */
+/*   Updated: 2025/09/04 12:22:44 by pnurmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,22 @@ void	parse_map(t_game *game, char *filename)
 	find_player(game);
 	count_collectibles(game);
 	validate_map_path(game);
+}
+
+void	read_and_split_map(t_game *game, char *filename)
+{
+	char	*map_contents;
+
+	parse_arg(filename);
+	map_contents = read_map(filename);
+	if (!map_contents)
+		error_exit(game, "Error: Could not read map file.\n");
+	check_map_tile(map_contents);
+	check_objects(game, map_contents);
+	game->map = ft_split(map_contents, '\n');
+	free(map_contents);
+	if (!game->map)
+		error_exit(game, "Error: Map split failed.\n");
 }
 
 char	*read_map(char *filename)
@@ -48,64 +64,4 @@ char	*read_map(char *filename)
 	}
 	close(fd);
 	return (map_whole);
-}
-
-void	find_player(t_game *game)
-{
-	int	y;
-	int	x;
-
-	y = 0;
-	while (game->map[y])
-	{
-		x = 0;
-		while (game->map[y][x])
-		{
-			if (game->map[y][x] == 'P')
-			{
-				game->player_x = x;
-				game->player_y = y;
-				break ;
-			}
-			x++;
-		}
-		y++;
-	}
-}
-
-void	count_collectibles(t_game *game)
-{
-	int	x;
-	int	y;
-
-	y = 0;
-	while (game->map[y])
-	{
-		x = 0;
-		while (game->map[y][x])
-		{
-			if (game->map[y][x] == 'C')
-			{
-				game->collectible++;
-			}
-			x++;
-		}
-		y++;
-	}
-}
-
-void	read_and_split_map(t_game *game, char *filename)
-{
-	char	*map_contents;
-
-	parse_arg(filename);
-	map_contents = read_map(filename);
-	if (!map_contents)
-		error_exit(game, "Error: Could not read map file.\n");
-	check_map_tile(map_contents);
-	check_objects(game, map_contents);
-	game->map = ft_split(map_contents, '\n');
-	free(map_contents);
-	if (!game->map)
-		error_exit(game, "Error: Map split failed.\n");
 }
