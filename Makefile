@@ -6,7 +6,7 @@
 #    By: pnurmi <pnurmi@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/04 12:25:20 by pnurmi            #+#    #+#              #
-#    Updated: 2025/09/04 10:46:19 by pnurmi           ###   ########.fr        #
+#    Updated: 2025/09/04 16:19:53 by pnurmi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,9 +57,6 @@ MLX_LIB     := $(MLX_DIR)/libmlx.a
 # Include Paths and Libraries
 INC         := -I. -I$(LIBFT_DIR) -I$(INC_DIR) -I$(MLX_DIR)
 LIBS        := -L$(LIBFT_DIR) -lft -L$(MLX_DIR) -lmlx -lXext -lX11 -lm
-
-# For macOS, replace the MLX linking flags with:
-# LIBS        := -L$(LIBFT_DIR) -lft -L$(MLX_DIR) -lmlx -framework OpenGL -framework AppKit
 
 # -------------------- Main Targets --------------------
 
